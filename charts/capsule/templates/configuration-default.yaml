@@ -19,6 +19,12 @@ spec:
 {{- range .Values.manager.options.capsuleUserGroups }}
     - {{ . }}
 {{- end}}
+  {{- with .Values.manager.options.capsuleExcludedUserGroups }}
+  excludedUserGroups:
+  {{- range . }}
+    - {{ . }}
+  {{- end }}
+  {{- end }}
   protectedNamespaceRegex: {{ .Values.manager.options.protectedNamespaceRegex | quote }}
   {{- with .Values.manager.options.nodeMetadata }}
   nodeMetadata:

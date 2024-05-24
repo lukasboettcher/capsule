@@ -121,6 +121,11 @@ func (in *CapsuleConfigurationSpec) DeepCopyInto(out *CapsuleConfigurationSpec) 
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
+	if in.ExcludedUserGroups != nil {
+		in, out := &in.ExcludedUserGroups, &out.ExcludedUserGroups
+		*out = make([]string, len(*in))
+		copy(*out, *in)
+	}
 	out.CapsuleResources = in.CapsuleResources
 	if in.NodeMetadata != nil {
 		in, out := &in.NodeMetadata, &out.NodeMetadata

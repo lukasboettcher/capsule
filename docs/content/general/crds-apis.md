@@ -109,6 +109,15 @@ when not using an already provided CA and certificate, or when these are managed
         </td>
         <td>true</td>
       </tr><tr>
+        <td><b>excludedUserGroups</b></td>
+        <td>[]string</td>
+        <td>
+          Names of the groups that are excluded from Capsule.<br/>
+          <br/>
+            <i>Default</i>: []<br/>
+        </td>
+        <td>false</td>
+      </tr><tr>
         <td><b>forceTenantPrefix</b></td>
         <td>boolean</td>
         <td>

@@ -24,12 +24,14 @@ metadata:
     capsule.clastix.io/validating-webhook-configuration-name: "capsule-validating-webhook-configuration"
 spec:
   userGroups: ["capsule.clastix.io"]
+  excludedUserGroups: ["administrator-group"]
   forceTenantPrefix: false
   protectedNamespaceRegex: ""
 ```
 
 Option | Description                                                                  | Default
 --- |------------------------------------------------------------------------------| ---
+`.spec.excludedUserGroups` | Array of groups that are excluded from Capsule.              | `[]`
 `.spec.forceTenantPrefix` | Force the tenant name as prefix for namespaces: `<tenant_name>-<namespace>`. | `false`
 `.spec.userGroups` | Array of Capsule groups to which all tenant owners must belong.              | `[capsule.clastix.io]`
 `.spec.protectedNamespaceRegex` | Disallows creation of namespaces matching the passed regexp.                 | `null`

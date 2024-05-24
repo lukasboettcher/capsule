@@ -31,6 +31,7 @@ func NewCapsuleConfiguration(ctx context.Context, client client.Client, name str
 				return &capsulev1beta2.CapsuleConfiguration{
 					Spec: capsulev1beta2.CapsuleConfigurationSpec{
 						UserGroups:                     []string{"capsule.clastix.io"},
+						ExcludedUserGroups:             []string{},
 						ForceTenantPrefix:              false,
 						ProtectedNamespaceRegexpString: "",
 					},
@@ -83,6 +84,10 @@ func (c *capsuleConfiguration) ValidatingWebhookConfigurationName() (name string
 
 func (c *capsuleConfiguration) UserGroups() []string {
 	return c.retrievalFn().Spec.UserGroups
+}
+
+func (c *capsuleConfiguration) ExcludedUserGroups() []string {
+	return c.retrievalFn().Spec.ExcludedUserGroups
 }
 
 func (c *capsuleConfiguration) ForbiddenUserNodeLabels() *capsuleapi.ForbiddenListSpec {
